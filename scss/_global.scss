@@ -1,0 +1,42 @@
+html,
+body {
+	height: 100%;
+	overflow-x: hidden;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 1.6rem;
+	color: #4A4A4A;
+	background-color: #ECF7F3;
+	&.scroll-lock {
+		overflow: hidden;
+	}
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+.main {
+	flex: 1 0 auto;
+}
+
+.container{
+  max-width: 1143px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+
+
+
+

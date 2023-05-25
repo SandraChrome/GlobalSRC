@@ -1,0 +1,114 @@
+//-------header start-------//
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem 0;
+        &__menu {
+            position: fixed;
+            top: 6.2rem;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+
+            background-color: rgba(#ffffff, 0.4);
+            backdrop-filter: blur(8px);
+
+            transition: left 0.2s linear 0s;
+            &.active {
+                left: 0;
+            }
+        }
+        &__menu-list {
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 2rem;
+        }
+        &__menu-item {
+            &::after {
+                width: 8rem;
+            }
+        }
+        &__menu-link {
+            font-size: 5rem;
+        }
+        &__burger-btn {
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .header {
+        &__menu-link {
+            font-size: 4rem;
+        }
+        &__btn {
+            padding: 0.9rem 1.8rem;
+        }
+        &__buttons-box {
+            gap: 6px;
+        }
+    }
+}
+//-------header end-------//
+
+//-------top-section start-------//
+
+@media (max-width: 1150px) {
+    .top-section {
+        &__image-body {
+            left: 0;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .top-section {
+        &__inner {
+            display: block;
+            height: 100%;
+        }
+        &__content {
+            margin-top: 10rem;
+            max-width: none;
+        }
+        &__title {
+            font-size: 3.5rem;
+        }
+        &__description {
+            max-width: none;
+        }
+        &__btn {
+            margin-bottom: 2rem;
+        }
+        &__form {
+            margin-bottom: 2rem;
+        }
+    }
+
+    @media (max-width: 425px) {
+        .header {
+            &__btn {
+                padding: 0.9rem 1.7rem;
+            }
+        }
+        .top-section {
+            &__btn {
+                width: 100%;
+            }
+            &__description {
+                margin-bottom: 2rem;
+            }
+            &__form {
+                padding: 0.4rem 0.6rem 0.4rem 1rem;
+            }
+            &__input-search {
+                max-width: 20rem;
+            }
+        }
+    }
+}
+
+//-------top-section end-------//

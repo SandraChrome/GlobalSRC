@@ -1,0 +1,447 @@
+@import "vars";
+@import "fonts";
+@import "reset";
+@import "libs";
+@import "global";
+
+//-------header start-------//
+
+.header {
+    padding: 3rem 0;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__menu-list {
+        display: flex;
+        align-items: center;
+        column-gap: 4rem;
+    }
+
+    &__menu-item {
+        position: relative;
+
+        &::after {
+            content: "";
+            height: 0.2rem;
+            width: 2.1rem;
+            background-color: #fb9b69;
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            opacity: 0;
+        }
+
+        &.active {
+            &.header__menu-item::after {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__menu-link {
+        line-height: 150%;
+
+        transition: all 0.1s linear 0s;
+        &:hover {
+            color: lighten(#4a4a4a, 20);
+        }
+    }
+
+    &__buttons-box {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &__btn {
+        padding: 0.9rem 2.3rem;
+
+        font-weight: 500;
+        line-height: 150%;
+        color: #ffffff;
+
+        background-color: $green-theme;
+        border-radius: 20px;
+
+        transition: all 0.1s linear 0s;
+        &:hover {
+            background-color: darken($green-theme, 5);
+        }
+    }
+
+    &__burger-btn {
+        display: none;
+        width: 40px;
+        height: 29px;
+        position: relative;
+        span {
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 3px;
+            border-radius: 15px;
+            background-color: $green-theme;
+            left: 0;
+            top: 13px;
+            transition: all 0.1s linear 0s;
+        }
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            border-radius: 15px;
+            background-color: $green-theme;
+            left: 0;
+            transition: all 0.1s linear 0s;
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+        &.clicked {
+            span {
+                width: 0;
+            }
+            &::after,
+            &::before {
+                top: 13px;
+            } 
+            &::before {
+                transform: rotate(45deg);
+            }
+            &::after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+//-------header end-------//
+
+//-------top-section start-------//
+
+.top-section {
+    &__inner {
+        min-height: calc(100vh - 10.2rem);
+        display: flex;
+        align-items: flex-end;
+    }
+
+    &__content {
+        padding-bottom: 4.4rem;
+        max-width: 59.7rem;
+        width: 100%;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 4.8rem;
+        line-height: 135%;
+        color: #2d2d2d;
+        margin-bottom: 2.2rem;
+        span {
+            color: #ff8345;
+        }
+    }
+
+    &__description {
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 173%;
+        color: #7c7c7c;
+        max-width: 44.4rem;
+        margin-bottom: 3rem;
+    }
+
+    &__btn {
+        padding: 1.1rem 2rem;
+        margin-bottom: 5rem;
+
+        background-color: $green-theme;
+        border-radius: 30px;
+
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 146%;
+        color: #ffffff;
+
+        transition: all 0.1s linear 0s;
+        &:hover {
+            background-color: darken($green-theme, 5);
+        }
+    }
+
+    &__form {
+        width: 100%;
+        padding: 0.4rem 0.6rem 0.4rem 4rem;
+        margin-bottom: 4rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background-color: #ffffff;
+        border-radius: 100px;
+        box-shadow: 0px 20px 30px rgba(222, 222, 222, 0.25);
+    }
+
+    &__input-search {
+        max-width: 22rem;
+        width: 100%;
+
+        font-family: "Roboto", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 118%;
+        letter-spacing: 0.01em;
+        color: #2d2d2d;
+        &::placeholder {
+            color: #a2a2a2;
+        }
+    }
+
+    &__btn-search {
+        height: 5.5rem;
+        width: 5.5rem;
+        border-radius: 50%;
+        background-color: $green-theme;
+
+        background-image: url(../images/top-section/search.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        transition: all 0.1s linear 0s;
+        &:hover {
+            background-color: darken($green-theme, 5);
+        }
+    }
+
+    &__content-footer {
+        display: flex;
+        align-items: center;
+        column-gap: 1.2rem;
+    }
+
+    &__users {
+        display: flex;
+        align-items: center;
+    }
+
+    &__user {
+        min-width: 42px;
+        min-height: 42px;
+        height: 1px;
+        border: 3px solid #ffffff;
+        border-radius: 50%;
+        overflow: hidden;
+
+        transition: transform 0.1s linear 0s;
+        &:hover {
+            transform: translateY(-10px);
+        }
+
+        &:not(:last-child) {
+            margin-right: -18px;
+        }
+
+        &:first-child {
+            z-index: 4;
+        }
+        &:nth-child(2) {
+            z-index: 3;
+        }
+        &:nth-child(3) {
+            z-index: 2;
+        }
+        &:last-child {
+            background-color: #ff8345;
+        }
+    }
+
+    &__user-link {
+        width: 100%;
+        min-height: 100%;
+    }
+
+    &__user-link--add {
+        position: relative;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 2px;
+            border-radius: 40px;
+            background-color: #ffffff;
+            top: 50%;
+            left: 50%;
+        }
+        &::before {
+            transform: translate(-50%, -50%);
+        }
+        &::after {
+            transform: translate(-50%, -50%) rotate(90deg);
+        }
+    }
+    &__user-avatar {
+        width: 38px;
+        height: 38px;
+        object-fit: cover;
+    }
+    &__footer-text {
+        font-family: "Roboto", sans-serif;
+        line-height: 119%;
+        color: #707070;
+        a {
+            color: #fd905a;
+        }
+    }
+
+    &__footer-link {
+        font-weight: 500;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__image {
+        flex: 1 0 auto;
+    }
+
+    &__image-body {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        left: 3.2rem;
+    }
+
+    &__image-animate {
+        position: absolute;
+        bottom: 155px;
+        z-index: -1;
+        svg {
+            overflow: inherit;
+            max-width: none;
+        }
+    }
+}
+
+@keyframes moveAround {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#flag-1,
+#flag-2,
+#flag-3,
+#flag-4,
+#flag-5 {
+    opacity: 0;
+    transform-origin: 274px 275px;
+    &.active {
+        opacity: 1;
+    }
+    &.spin {
+        animation: moveAround 5s infinite linear;
+        circle:first-child {
+            animation: moveAround 5s infinite linear;
+            animation-direction: reverse;
+        }
+    }
+}
+
+@keyframes moveFlag1 {
+    from {
+        transform: translate(220px, -40px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes moveFlag2 {
+    from {
+        transform: translate(196px, 116px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes moveFlag3 {
+    from {
+        transform: translate(-19px, 233px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes moveFlag4 {
+    from {
+        transform: translate(-194px, 112px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes moveFlag5 {
+    from {
+        transform: translate(-218px, -41px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+#flag-1 {
+    animation: moveFlag1 0.5s ease-out 3s;
+    circle {
+        transform-origin: 55px 322px;
+    }
+}
+#flag-2 {
+    animation: moveFlag2 0.5s ease-out 3.4s;
+    circle {
+        transform-origin: 79px 167px;
+    }
+}
+#flag-3 {
+    animation: moveFlag3 0.5s ease-out 3.8s;
+    circle {
+        transform-origin: 294px 50px;
+    }
+}
+#flag-4 {
+    animation: moveFlag4 0.5s ease-out 4.2s;
+    circle {
+        transform-origin: 470px 172px;
+    }
+}
+#flag-5 {
+    animation: moveFlag5 0.5s ease-out 4.6s;
+    circle {
+        transform-origin: 494px 322px;
+    }
+}
+
+//-------top-section end-------//
+
+@import "media";
